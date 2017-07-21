@@ -132,7 +132,8 @@ $('#ongletCode').on('click',function(){
     //JE RÉCUPÈRE LA DIV #VISUEL
     var codeContent=document.getElementById('code');
     //J'INJECTE LE TEXTE DE CODE DANS MES BALISES RECUP DU SELECT
-    codeContent.textContent="<"+recupOptionDuSelect+">"+visuelContent+"</"+recupOptionDuSelect+">";
+    codeContent.textContent=visuelContent;
+    // codeContent.textContent="<"+recupOptionDuSelect+">"+visuelContent+"</"+recupOptionDuSelect+">";
 
 });
 
