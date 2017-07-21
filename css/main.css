@@ -16,7 +16,7 @@ a {
   text-decoration: none;
   display: inline-block; }
 
-li {
+.block > ul > li {
   list-style-type: none; }
 
 @font-face {
@@ -46,8 +46,12 @@ li {
     top: 15px;
     z-index: 5; }
   .container .ongletVisuel {
-    background: #3db778;
+    background: #3db778; }
+  .container .ongletCode {
     margin-left: 10px; }
+  .container .fixTop {
+    top: 0;
+    padding: 15px; }
   .container .block {
     clear: both;
     background: #bdc3c7;
@@ -94,7 +98,7 @@ li {
       padding: 20px;
       outline: none; }
     .container .block #code {
-      background-color: rgba(76, 187, 238, 0.6);
+      background-color: rgba(76, 187, 238, 0.1);
       margin-top: 40px;
       width: auto;
       height: 300px;
@@ -106,11 +110,5 @@ li {
       display: none; }
     .container .block .focus {
       background-color: #607D8B; }
-    .container .block .fixTop {
-      top: 0;
-      padding: 15px; }
-    .container .block .fixDown {
-      top: 15px;
-      padding: 10px; }
 
 /*# sourceMappingURL=main.css.map */
