@@ -74,7 +74,7 @@ var recupOptionDuSelect = 'p';
 $('#selection').change(function(event) {
     recupOptionDuSelect = ($('#selection').val());
     document.execCommand('formatBlock', false, '<'+recupOptionDuSelect+'>');
-    console.log(recupOptionDuSelect);
+    // console.log(recupOptionDuSelect);
 }); 
 
 
@@ -82,9 +82,47 @@ $('#selection').change(function(event) {
 $('button').on('click',function(){
     var check = $(this).data('command');
     document.execCommand(check);
-    console.log(check);
+    // console.log(check);
 })
 
+
+
+test = {
+            tmpEl: document.createElement('div'),
+            
+			htmlToDom: function(htmlEl){
+                //JE RÉCUPÈRE MON HEADING ( H1 H2 ETC )
+                test.tmpEl.innerHTML = htmlEl;
+                return test.tmpEl.children[0]
+			},
+			wrapSelection: function(htmlEl){
+                //JE RÉPUÈRE LA SELECTION DU TEXTE ET JE STOCK DANS UNE VARIABLE AVEC GETSELECTION
+                var selection = window.getSelection();
+
+                //JE CRÉE UN FOR AVEC LA METHODE RANGE ET UNE INCREMENTATION NEGATIVE
+				for(var i = selection.rangeCount;i--;){
+                    //J'INJECTE DANS UNE VARIABLE LE CONTENU 
+                    var global = test.htmlToDom(htmlEl)
+                    //J'INJECTE DANS UNE VARIABLE RANGE L'OBJET
+                    //The Selection.getRangeAt() method returns a range object representing one of the ranges currently selected.
+                    var range = selection.getRangeAt(i);
+					global.appendChild(range.extractContents());
+					range.insertNode(global);
+				}
+			},
+			command: (name,argument)=>{ //HEADING,THIS.VALUE
+				switch(name){
+	                    case 'heading' :
+						test.wrapSelection('<'+argument+'/>')	
+						return;
+				}
+				if(typeof argument === 'undefined') {
+        			argument = '';
+    			}
+				document.execCommand(name, false, argument);
+			}
+        }
+        
 
 
 //CETTE FONCTION PERMET D'ENVOYER LE CLEAN A LA VERSION HTML

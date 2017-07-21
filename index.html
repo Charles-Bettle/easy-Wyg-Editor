@@ -16,7 +16,7 @@
 				<div class="block">
 					<ul>
 						<li>
-							<select id="selection">
+							<select id="selection" onchange="test.command('heading', this.value); this.selectedIndex = 0;">
 								<option selected="selected" value="p">Paragraphe</option>
 								<option value="h1">H1</option>
 								<option value="h2">H2</option>
@@ -94,8 +94,8 @@
 						<li class="trait">
 						</li>
 					</ul>
-					<div id="code"  class="hidden" contenteditable="true"></div>
-					<div id="visuel"  contenteditable="true"></div>
+					<div id="code"  class="hidden" contenteditable="true" ></div>
+					<div id="visuel"  contenteditable="true" ></div>
 				</div>
 			</div>
 	
@@ -106,3 +106,4 @@
 	</body>
 
 <html>
+
