@@ -22,8 +22,12 @@ a{
 	display: inline-block;
 }
 
-li {
-	list-style-type: none;
+// li{
+// 	list-style-type: none;
+// }
+
+.block>ul>li{
+	list-style-type:none;
 }
 
 
@@ -77,7 +81,13 @@ li {
 		}
 		.ongletVisuel{
 			background: #3db778;
+		}
+		.ongletCode{
 			margin-left: 10px;
+		}
+		.fixTop{
+			top:0;
+			padding: 15px;
 		}
 	.block{
 		clear:both;
@@ -128,7 +138,7 @@ li {
 			@include cadre;
 		}
 		#code{
-			background-color: rgba(76, 187, 238, .6);
+			background-color: rgba(76, 187, 238, .1);
 			@include cadre;
 		}
 		.hidden{
@@ -136,14 +146,6 @@ li {
 		}
 		.focus{
 			background-color: #607D8B;
-		}
-		.fixTop{
-			top:0;
-			padding: 15px;
-		}
-		.fixDown{
-			top:15px;
-			padding: 10px;
 		}
 	}
 

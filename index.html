@@ -11,91 +11,91 @@
 	</head>
 	<body>
 			<div class="container">
-				<a href="#" id="ongletVisuel" class="ongletVisuel">Visual</a>
 				<a href="#" id="ongletCode" class="ongletCode">Code</a>
+				<a href="#" id="ongletVisuel" class="ongletVisuel">Visual</a>
 				<div class="block">
 					<ul>
 						<li>
-							<select>
-								<option value="">Paragraphe</option>
-								<option value="h1">H 1</option>
-								<option value="h2">H 2</option>
-								<option value="h3">H 3</option>
-								<option value="h4">H 4</option>
-								<option value="h5">H 5</option>
-								<option value="h6">H 6</option>
+							<select id="selection">
+								<option selected="selected" value="p">Paragraphe</option>
+								<option value="h1">H1</option>
+								<option value="h2">H2</option>
+								<option value="h3">H3</option>
+								<option value="h4">H4</option>
+								<option value="h5">H5</option>
+								<option value="h6">H6</option>
 							</select>
 						</li>
 						<li>
-							<button class="bold" type="button" name="" value="">
+							<button class="btn-Action-Typo bold" type="button" data-command='bold' name="" value="">
 								<i class="fa fa-bold" aria-hidden="true"></i>
 							</button>
 						</li>
-						<li><button class='italic' type="button" name="" value="">
+						<li><button class='btn-Action-Typo italic' data-command='italic' type="button" name="" value="">
 							<i class="fa fa-italic" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='listUl' type="button" name="" value="">
+							<button class='listUl' type="button" data-command= 'insertOrderedList' name="" value="">
 								<i class="fa fa-list" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='listOl' type="button" name="" value="">
+							<button class='listOl' type="button" data-command= 'insertUnorderedList' name="" value="">
 								<i class="fa fa-list-ol" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='textAlignLeft' type="button" name="" value="">
+							<button class='textAlignLeft' type="button" data-command= 'justifyLeft' name="" value="">
 								<i class="fa fa-align-left" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='textAlignCenter' type="button" name="" value="">
+							<button class='textAlignCenter' type="button" data-command= 'justifyCenter' name="" value="">
 								<i class="fa fa-align-center" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='textAlignRight' type="button" name="" value="">
+							<button class='textAlignRight' type="button" data-command= 'justifyRight' name="" value="">
 								<i class="fa fa-align-right" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='textJustify' type="button" name="" value="">
+							<button class='textJustify' type="button" data-command= 'justifyFull' name="" value="">
 								<i class="fa fa-align-justify" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='addLink' type="button" name="" value="">
+							<button class='addLink' type="button" data-command= 'link' name="" value="">
 								<i class="fa fa-link" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='removeLink' type="button" name="" value="">
-								<i class="fa fa-link" aria-hidden="true"></i>
+							<button class='removeLink' type="button" data-command= 'unlink' name="" value="">
+								<i class="fa fa-chain-broken" aria-hidden="true"></i>
 							</button>
 						</li>
-						<li>
-							<button class='colorPicker' type="button" name="" value="">
+						<!-- <li>
+							<button class='colorPicker' type="button" data-command= 'insertOrderedList' name="" value="">
 								<i class="fa fa-picture-o" aria-hidden="true"></i>
 							</button>
 						</li>
 						</li>
 						<li>
-							<button class='addImg' type="button" name="" value="">
+							<button class='addImg' type="button" data-command= 'insertImage' name="" value="">
 								<i class="fa fa-picture-o" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='eraseBtn' type="button" name="" value="">
+							<button class='eraseBtn' type="button" data-command= 'insertOrderedList' name="" value="">
 								<i class="fa fa-eraser" aria-hidden="true"></i>
 							</button>
-						</li>
+						</li> -->
 						<li class="trait">
 						</li>
 					</ul>
-					<div id="code" class="hidden" contenteditable></div>
-					<div id="visuel" contenteditable></div>
+					<div id="code"  class="hidden" contenteditable="true"></div>
+					<div id="visuel"  contenteditable="true"></div>
 				</div>
 			</div>
 	
