@@ -42,20 +42,199 @@ a{
   font-style: normal;
 }
 
+//  -------------- VARIABLES --------------  //
+
+$colorBorder: #222;
+
 //  -------------- MIXIN --------------  //
 
 @mixin cadre(){
-	margin-top:40px;
+	margin-top:5px;
 	width: auto;
 	height: 300px;
-	border-radius: 5px;
-	border:1px solid #222;
+	border-radius: 2px;
+	border:1px solid $colorBorder;
 	padding: 20px;
 	outline: none;
 	overflow: scroll;
 }
 
+@mixin submit(){
+	height:30px;
+	float: right;
+	border: none;
+}
 //  -------------- DEBUT SCSS --------------  //
+
+.hidden{
+display: none;
+}
+.blur{
+filter:blur(3px);
+transition: all .2s ease-in;
+}
+strong{
+font-weight: bold;
+}
+em{
+font-style: italic;
+}
+
+
+
+//  -------------- MODAL LINK --------------  //
+
+#modal-link{
+max-width: 500px;
+min-width: 420px;
+width: 90%;
+padding:20px;
+position: absolute;
+top: 25%;
+left: 50%;
+margin-left: -250px;
+z-index: 9999;
+background-color: rgba(255, 255, 255, .6);
+border: 2px solid $colorBorder;
+	h1{
+	font-size: 2rem;
+	margin-top:-1px;
+		i{
+		float: right;
+		cursor: pointer;
+		}
+		i:hover{
+		color:#fd5062;
+		}
+	}
+	.trait{
+	border-bottom:1px solid $colorBorder;
+	margin: 20px 0;
+	}
+	form{
+	display: flex;
+	justify-content: space-between;
+	}
+	label{
+	padding-top: 15px;
+	}
+	input#url{
+	width: 220px;
+	float: right;
+	}
+	.fa-external-link{
+	background-color: #eeeeee;
+	border:1px solid rgba(0, 0, 0, .2);
+	padding: 5px 5px;
+	font-size: 2rem;
+	cursor: pointer;
+	margin: .52em 0;
+	float: right;
+	width: 30px;
+	height: 1.5em;
+	}
+	.fa-external-link:hover{
+	color: #fd5062;
+	}
+	input:not([type="submit"]){
+	width: 250px;
+	height:30px;
+	margin: 10px 0;
+	}
+	#submitOk{
+	width: 50px;
+	background-color: #fd5062;
+	color:#fff;
+	margin-right: 10px;
+	@include submit;
+	}
+	#submitOk:hover{
+	background-color: #fd5000;
+	}
+	#submitCancel{
+	width: 80px;
+	background-color: #eeeeee;
+	@include submit;
+	}
+}
+
+//  -------------- MODAL LINK --------------  //
+
+#modal-img{
+max-width: 500px;
+min-width: 420px;
+width: 90%;
+padding:20px;
+position: absolute;
+top: 25%;
+left: 50%;
+margin-left: -250px;
+z-index: 9999;
+background-color: rgba(255, 255, 255, .6);
+border: 2px solid $colorBorder;
+	h1{
+	font-size: 2rem;
+	margin-top:-1px;
+		i{
+		float: right;
+		cursor: pointer;
+		}
+		i:hover{
+		color:#fd5062;
+		}
+	}
+	.trait{
+	border-bottom:1px solid $colorBorder;
+	margin: 20px 0;
+	}
+	form{
+	display: flex;
+	justify-content: space-between;
+	}
+	label{
+	padding-top: 15px;
+	}
+	input#url{
+	width: 220px;
+	float: right;
+	}
+	.fa-external-link{
+	background-color: #eeeeee;
+	border:1px solid rgba(0, 0, 0, .2);
+	padding: 5px 5px;
+	font-size: 2rem;
+	cursor: pointer;
+	margin: .52em 0;
+	float: right;
+	width: 30px;
+	height: 1.5em;
+	}
+	.fa-external-link:hover{
+	color: #fd5062;
+	}
+	input:not([type="submit"]){
+	width: 250px;
+	height:30px;
+	margin: 10px 0;
+	}
+	#submitOk{
+	width: 50px;
+	background-color: #fd5062;
+	color:#fff;
+	margin-right: 10px;
+	@include submit;
+	}
+	#submitOk:hover{
+	background-color: #fd5000;
+	}
+	#submitCancel{
+	width: 80px;
+	background-color: #eeeeee;
+	@include submit;
+	}
+}
+
+//  --------------  WIZIWIG --------------  //
 
 
 .container {
@@ -65,23 +244,23 @@ a{
 	padding:20px;
 	
 		.ongletVisuel, .ongletCode{
-			width:160px;
+			width:80px;
 			height: 50px;
-			border-radius: 5px 5px 0 0;
-			background: #00aeef;
+			border-radius: 3px 3px 0 0;
+			background: #5e5e5e;
 			text-align: center;
 			color:black;
 			float: right;
 			padding: 10px;
-			border-left:1px solid #222;
-			border-right:1px solid #222;
-			border-top:1px solid #222;
+			border-left:1px solid $colorBorder;
+			border-right:1px solid $colorBorder;
+			border-top:1px solid $colorBorder;
 			position: relative;
 			top:15px;
 			z-index: 5;
 		}
 		.ongletVisuel{
-			background: #3db778;
+			background: rgba(255, 255, 255, .6);;
 		}
 		.ongletCode{
 			margin-left: 10px;
@@ -92,20 +271,18 @@ a{
 		}
 	.block{
 		clear:both;
-		background: #bdc3c7;
-		border-radius: 10px 0 10px 10px;
-		padding: 20px;
-		border:1px solid #222;
+		background: #5e5e5e;
+		padding: 5px;
 		z-index: 999;
 		position: relative;
 		
 		ul{
 			display: flex;
-			border-radius: 5px;
+			border-radius: 2px;
 			padding: 5px;
-			background-color: #eeeeee;
+			background-color: #303030;
 			flex-flow: row wrap;
-			border:1px solid #222;
+			border:1px solid $colorBorder;
 			li{
 				margin: 3px;	
 			}
@@ -113,12 +290,14 @@ a{
 				width: 50px;
 				height: 50px;
 				border-color: transparent;
-				background-color: #3498db;
-				border-radius: 5px;
-				outline-color: #2196F3;
+				background-color: #fff;
+				border-radius: 2px;
+				outline-color: transparent;
 			}
 			button:hover{
-				background-color: #607D8B;
+				background-color: #5e5e5e;
+				border:1px solid #fff;
+				outline-color: transparent;
 			}
 			i{
 				padding: 15px;
@@ -128,25 +307,27 @@ a{
 			}
 			select{
 				height:50px;
-				width: 130px;
+				width: 107px;
 				margin-right: 5px;
 				border: none;
-				background-color:  rgba(76, 187, 238, .6);
+				background-color:  #fff;
+				margin-bottom: 4px;
 			}
 		}
 		#visuel{
-			background-color: rgba(106, 189, 143, .6);
+			background-color: rgba(255, 255, 255, .6);
 			@include cadre;
 		}
 		#code{
 			background-color: rgba(76, 187, 238, .1);
 			@include cadre;
 		}
-		.hidden{
-			display: none;
-		}
+
 		.focus{
-			background-color: #607D8B;
+			background-color: #5e5e5e;
+			border:1px solid #fff;
+			outline-color: transparent;
+			color: #fff;
 		}
 	}
 
