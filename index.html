@@ -7,9 +7,75 @@
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" >
+
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body>
+
+		<!-- CRÉATION DE LA POP UP LINK -->
+
+		<div id="modal-link" class="hidden blur">
+			<h1>Lien à insérer
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</h1>
+			<div class="trait">
+			</div>
+			<form action="">
+				<form action="">
+				<label for="url">Url :</label>
+					<div>
+						<i class="fa fa-external-link" aria-hidden="true"></i>
+						<input type="text" name="name" id="url" value="" placeholder="">
+					</div>	
+				</form>
+				<form action="">
+					<label for="display">Description :</label>
+					<input type="text" name="name" id="display" value="" placeholder="">
+				</form>
+				<form action="">
+					<label for="titre">Titre :</label>
+					<input type="text" name="name" id="titre" value="" placeholder="">
+				</form>
+				<div class="trait">
+				</div>
+				<input type="submit" id="submitCancel" value="Annuler">
+				<input type="submit" id="submitOk" value="Ok">
+			</form>
+		</div>
+
+				<!-- CRÉATION DE LA POP UP IMAGE -->
+
+		<div id="modal-img" class="hidden blur">
+			<h1>Image à insérer
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</h1>
+			<div class="trait">
+			</div>
+			<form action="">
+				<form action="">
+				<label for="url">Source :</label>
+					<div>
+						<i class="fa fa-external-link" aria-hidden="true"></i>
+						<input type="text" name="name" id="url" value="" placeholder="">
+					</div>	
+				</form>
+				<form action="">
+					<label for="display">Description :</label>
+					<input type="text" name="name" id="display" value="" placeholder="">
+				</form>
+				<form action="">
+					<label for="titre">Titre :</label>
+					<input type="text" name="name" id="titre" value="" placeholder="">
+				</form>
+				<div class="trait">
+				</div>
+				<input type="submit" id="submitCancel" value="Annuler">
+				<input type="submit" id="submitOk" value="Ok">
+			</form>
+		</div>
+
+		<!-- DÉBUT HTML-->
+		
 			<div class="container">
 				<a href="#" id="ongletCode" class="ongletCode">Code</a>
 				<a href="#" id="ongletVisuel" class="ongletVisuel">Visual</a>
@@ -27,7 +93,7 @@
 							</select>
 						</li>
 						<li>
-							<button class="btn-Action-Typo bold" type="button" data-command='bold' name="" value="">
+							<button class="btn-Action-Typo bold" type="button" data-command='bold'>
 								<i class="fa fa-bold" aria-hidden="true"></i>
 							</button>
 						</li>
@@ -75,9 +141,9 @@
 								<i class="fa fa-chain-broken" aria-hidden="true"></i>
 							</button>
 						</li>
-						<!-- <li>
-							<button class='colorPicker' type="button" data-command= 'insertOrderedList' name="" value="">
-								<i class="fa fa-picture-o" aria-hidden="true"></i>
+						 <li>
+							<button class='colorPicker' type="button" data-command= 'foreColor' name="" value="">
+								<i class="fa fa-font" aria-hidden="true"></i>
 							</button>
 						</li>
 						</li>
@@ -87,10 +153,10 @@
 							</button>
 						</li>
 						<li>
-							<button class='eraseBtn' type="button" data-command= 'insertOrderedList' name="" value="">
+							<button class='eraseBtn' type="button" data-command= 'delete' name="" value="">
 								<i class="fa fa-eraser" aria-hidden="true"></i>
 							</button>
-						</li> -->
+						</li> 
 						<li class="trait">
 						</li>
 					</ul>
@@ -99,6 +165,7 @@
 				</div>
 			</div>
 	
+		<!-- DÉBUT HTML-->
 		
 		<script src="js/jquery-3.2.1.min.js"></script> 
 		<script src="js/main.js"></script>

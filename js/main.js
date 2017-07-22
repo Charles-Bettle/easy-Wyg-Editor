@@ -1,7 +1,5 @@
 $(function(){
 
-    //INTERACTION DES BOUTONS D'ALIGNEMENTS
-
     //INTERACTION DES BOUTONS BOLD & ITALIC
 
     $('.btn-Action-Typo').on('click',function(){
@@ -32,7 +30,45 @@ $(function(){
         }
     });
 
-    //FIN INTERACTION DES BOUTONS D'ALIGNEMENTS
+    //INTERACTION DES BOUTONS D'ALIGNEMENTS
+
+    //INTERACTION DES BOUTONS LINK
+
+    $('.fa-link').on('click',function(){
+        $('#modal-link').removeClass('hidden');
+        $('#modal-link').removeClass('blur');
+        $('.container').addClass('blur');
+    })
+    $('.fa-times').on('click',function(){
+        $('#modal-link').addClass('hidden');
+        $('#modal-link').addClass('blur');
+        $('.container').removeClass('blur');
+    })
+    $('#submitCancel').on('click',function(){
+        $('#modal-link').addClass('hidden');
+        $('#modal-link').addClass('blur');
+        $('.container').removeClass('blur');
+    })
+
+    //INTERACTION DU BOUTON IMAGE
+
+    $('.fa-picture-o').on('click',function(){
+        $('#modal-img').removeClass('hidden');
+        $('#modal-img').removeClass('blur');
+        $('.container').addClass('blur');
+    })
+    $('.fa-times').on('click',function(){
+        $('#modal-img').addClass('hidden');
+        $('#modal-img').addClass('blur');
+        $('.container').removeClass('blur');
+    })
+    $('#submitCancel').on('click',function(){
+        $('#modal-img').addClass('hidden');
+        $('#modal-img').addClass('blur');
+        $('.container').removeClass('blur');
+    })
+
+    //INTERACTION DU BOUTON ERASE
 
     //DEBUT INTERACTION ONGLET VISUEL ET CODE
 
@@ -66,7 +102,6 @@ $(function(){
 
     //FIN INTERACTION ONGLET VISUEL ET CODE
 
-
 //J'INITIALISE MA VARIABLE = P
 var recupOptionDuSelect = 'p';
 
@@ -74,19 +109,40 @@ var recupOptionDuSelect = 'p';
 $('#selection').change(function(event) {
     recupOptionDuSelect = ($('#selection').val());
     document.execCommand('formatBlock', false, '<'+recupOptionDuSelect+'>');
-    // console.log(recupOptionDuSelect);
 }); 
 
-
 //ON EXECUTE UNE METHODE POUR MODIFIER LE TEXTE SELON LE BOUTON OU ON CLIQUE
+//ON CHANGE LES BALISE B EN STRONG ET I EN ITALIC
 $('button').on('click',function(){
     var check = $(this).data('command');
     document.execCommand(check);
-    // console.log(check);
+
+    var root, elemsB, elemsI;
+
+    root = document.getElementById('visuel');
+    elemsB = root.getElementsByTagName('b');
+    elemsI = root.getElementsByTagName('i');
+
+    toArrayStrong(elemsB).forEach(function(elemB){
+    var newElemStrong = document.createElement('strong');
+    newElemStrong.textContent = elemB.textContent;
+    elemB.parentNode.replaceChild(newElemStrong, elemB);    
+    });
+    toArrayItalic(elemsI).forEach(function(elemI){
+    var newElemStrong = document.createElement('em');
+    newElemStrong.textContent = elemI.textContent;
+    elemI.parentNode.replaceChild(newElemStrong, elemI); 
+    });
+
+function toArrayStrong( arrayLike ){ 
+    return [].slice.call( arrayLike );
+    }
+function toArrayItalic( arrayLike ){ 
+    return [].slice.call( arrayLike );
+    }
 })
 
-
-
+//CHANGEMENT DU HEADING D'UNE SELECTION
 test = {
             tmpEl: document.createElement('div'),
             
@@ -99,7 +155,7 @@ test = {
                 //JE RÉPUÈRE LA SELECTION DU TEXTE ET JE STOCK DANS UNE VARIABLE AVEC GETSELECTION
                 var selection = window.getSelection();
 
-                //JE CRÉE UN FOR AVEC LA METHODE RANGE ET UNE INCREMENTATION NEGATIVE
+                //JE CRÉE UN FOR AVEC LA METHODE RANGE  ET UNE INCREMENTATION NEGATIVE
 				for(var i = selection.rangeCount;i--;){
                     //J'INJECTE DANS UNE VARIABLE LE CONTENU 
                     var global = test.htmlToDom(htmlEl)
