@@ -193,3 +193,9 @@ $('#ongletCode').on('click',function(){
 
 });
 
+
+$('#ongletVisuel').on('click',function(){ 
+   var x=$('#code').text();
+   $('#visuel').html(x);
+});
+
