@@ -293,7 +293,10 @@ $('#colorSelector').ColorPicker({
         
 	}
 });
-$('.colorpicker_submit').on('click',function(){
-    var check = $(this).data('command');
-    document.execCommand( check, false, color='#'+ hex );
-});
+
+// recuperer les infos du picker et l'envoyer sur la selection
+
+// $('.colorpicker_submit').on('click',function(){
+//     var check = $(this).data('command');
+//     document.execCommand( check, false, color='#'+ hex );
+// });
