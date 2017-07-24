@@ -38,6 +38,12 @@ strong {
 em {
   font-style: italic; }
 
+#mask {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 4500; }
+
 #modal-link {
   max-width: 500px;
   min-width: 420px;

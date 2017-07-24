@@ -81,8 +81,13 @@ font-style: italic;
 }
 
 
-
 //  -------------- MODAL LINK --------------  //
+#mask{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 4500;
+}
 
 #modal-link{
 max-width: 500px;
@@ -242,7 +247,8 @@ border: 2px solid $colorBorder;
 	width: 90%;
 	margin: 0 auto; 
 	padding:20px;
-	
+		
+
 		.ongletVisuel, .ongletCode{
 			width:80px;
 			height: 50px;
