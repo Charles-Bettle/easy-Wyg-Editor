@@ -82,8 +82,8 @@
 				<div class="block">
 					<ul>
 						<li>
-							<select id="selection" onchange="test.command('heading', this.value); this.selectedIndex = 0;">
-								<option selected="selected" value="p">Paragraphe</option>
+							<select id="selection" onchange="test.command('heading', this.value);">
+								<option id="selectedPara" selected="selected" value="p">Paragraphe</option>
 								<option value="h1">H1</option>
 								<option value="h2">H2</option>
 								<option value="h3">H3</option>
@@ -153,7 +153,7 @@
 							</button>
 						</li>
 						<li>
-							<button class='eraseBtn' type="button" data-command= 'delete' name="" value="">
+							<button class='eraseBtn' type="button" name="" value="">
 								<i class="fa fa-eraser" aria-hidden="true"></i>
 							</button>
 						</li> 
@@ -161,7 +161,7 @@
 						</li>
 					</ul>
 					<div id="code"  class="hidden" contenteditable="true" ></div>
-					<div id="visuel"  contenteditable="true" ></div>
+					<div id="visuel"  contenteditable="true"></div>
 				</div>
 			</div>
 	

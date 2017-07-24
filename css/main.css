@@ -231,7 +231,7 @@ em {
         background-color: #fff;
         margin-bottom: 4px; }
     .container .block #visuel {
-      background-color: rgba(255, 255, 255, 0.6);
+      background-color: white;
       margin-top: 5px;
       width: auto;
       height: 300px;
@@ -241,7 +241,7 @@ em {
       outline: none;
       overflow: scroll; }
     .container .block #code {
-      background-color: rgba(76, 187, 238, 0.1);
+      background-color: rgba(255, 255, 255, 0.6);
       margin-top: 5px;
       width: auto;
       height: 300px;
