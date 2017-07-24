@@ -1,39 +1,119 @@
-$(function(){
+$(function(){//DÉBUT INTERACTION ONGLET VISUEL ET CODE
 
     //INTERACTION DES BOUTONS BOLD & ITALIC
-
     $('.btn-Action-Typo').on('click',function(){
         if( $(this).hasClass('focus')){
         $(this).removeClass('focus');
         }
-        else{
-          $(this).addClass('focus');
-        }
     });
 
-    //INTERACTION DES BOUTONS LIST UL & LIST OL
+(function () {
 
+    document.getElementById('visuel')
+    //on assigne un gestionnaire d'événemenbt à la cible
+    //L'événement contextmenu est déclenché lors d'un click du bouton droit de la souris
+        .addEventListener('contextmenu', rightClickHandler, false);
+    //on écrit la function rightClickHandler
+    function rightClickHandler(event) {
+        event.preventDefault();
+
+        //on met dans une variable la chaine de de caractère entouré de la balise existante
+        var recupBalise = event.target;
+        console.log(recupBalise);
+        if(!recupBalise){
+            //si nous n'obtenons pas la balise ( ex <stron> ) voulu on retourne faux
+            return false;
+        }
+        //ici on pourra ajouter un cas 'DU NOM DE NOTRE STYLE' si on veut gérer d'autres cas
+        //La Node.nodeName propriété en lecture seule renvoie le nom du nœud actuel en tant que chaîne
+        switch (recupBalise.nodeName.toUpperCase()) {
+            case 'STRONG':
+                //on ajoute la classe focus si on clique sur un texte qui contient du strong
+                $('.bold').addClass('focus');
+                // console.log('c\'est un strong !');
+                break;
+            case 'EM':
+                //on ajoute la classe focus si on clique sur un texte qui contient du em
+                $('.italic').addClass('focus');
+                // console.log('c\'est un em !');
+                break;
+        
+            default:
+                $('.bold').removeClass('focus');
+                $('.italic').removeClass('focus');
+                break;
+        }
+        return false; // pour empecher le menu contextuel de Chrome/Firefox/IE/... de s'ouvrir
+    }
+})();
+
+    //INTERACTION DES BOUTONS LIST UL & LIST OL
     $('.listUl').on('click',function(){
-        if($('this').hasClass('focus')){
-            $('.listOl').removeClass('focus')
+        if($(this).hasClass('focus')){
+            $('.listUl').removeClass('focus');
         }
         else{
-            $('.listUl').removeClass('focus')
+            $('.listUl').addClass('focus');
+            $('.listOl').removeClass('focus');
         }
     });
     $('.listOl').on('click',function(){
-        if($('.listOl').hasClass('focus')){
-        $('.listUl').removeClass('focus')
+        if($(this).hasClass('focus')){
+        $('.listOl').removeClass('focus');
         }
         else{
-            $('.listOl').removeClass('focus')
+            $('.listOl').addClass('focus');
+            $('.listUl').removeClass('focus');
         }
     });
 
     //INTERACTION DES BOUTONS D'ALIGNEMENTS
+    $('.textAlignLeft').on('click',function(){
+        if($(this).hasClass('focus')){
+            $('.textAlignLeft').removeClass('focus');
+        }
+        else{
+            $('.textAlignLeft').addClass('focus');
+            $('.textAlignCenter').removeClass('focus');
+            $('.textAlignRight').removeClass('focus');
+            $('.textJustify').removeClass('focus');
+        }
+    });
+    $('.textAlignCenter').on('click',function(){
+        if($(this).hasClass('focus')){
+        $('.textAlignCenter').removeClass('focus');
+        }
+        else{
+            $('.textAlignCenter').addClass('focus');
+            $('.textAlignLeft').removeClass('focus');
+            $('.textAlignRight').removeClass('focus');
+            $('.textJustify').removeClass('focus');
+        }
+    });
+    $('.textAlignRight').on('click',function(){
+        if($(this).hasClass('focus')){
+            $('.textAlignRight').removeClass('focus');
+        }
+        else{
+            $('.textAlignRight').addClass('focus');
+            $('.textAlignCenter').removeClass('focus');
+            $('.textAlignLeft').removeClass('focus');
+            $('.textJustify').removeClass('focus');
+        }
+    });
+    $('.textJustify').on('click',function(){
+        if($(this).hasClass('focus')){
+        $('.textJustify').removeClass('focus');
+        }
+        else{
+            $('.textJustify').addClass('focus');
+            $('.textAlignCenter').removeClass('focus');
+            $('.textAlignRight').removeClass('focus');
+            $('.textAlignLeft').removeClass('focus');
+        }
+    });
 
     //INTERACTION DES BOUTONS LINK
-
     $('.fa-link').on('click',function(){
         $('#modal-link').removeClass('hidden');
         $('#modal-link').removeClass('blur');
@@ -51,7 +131,6 @@ $(function(){
     })
 
     //INTERACTION DU BOUTON IMAGE
-
     $('.fa-picture-o').on('click',function(){
         $('#modal-img').removeClass('hidden');
         $('#modal-img').removeClass('blur');
@@ -68,10 +147,7 @@ $(function(){
         $('.container').removeClass('blur');
     })
 
-    //INTERACTION DU BOUTON ERASE
-
     //DEBUT INTERACTION ONGLET VISUEL ET CODE
-
     $('#ongletVisuel').on('click',function(){
         if( $('#visuel').hasClass('hidden')){
             $('.ongletVisuel').addClass('fixTop');
@@ -98,20 +174,16 @@ $(function(){
         }
     });
 
-});
+    //INTERACTION BOUTON ERASE
+    $('.eraseBtn').on('click',function(){
+        var tryToTest = getSelection();
+        document.execCommand("insertHTML", false, tryToTest);
+    });
 
-    //FIN INTERACTION ONGLET VISUEL ET CODE
+});//FIN INTERACTION ONGLET VISUEL ET CODE
 
-//J'INITIALISE MA VARIABLE = P
-var recupOptionDuSelect = 'p';
 
-//RÉCUPÉRATION DE L'OPTION CONTENANT LE HEADING
-$('#selection').change(function(event) {
-    recupOptionDuSelect = ($('#selection').val());
-    document.execCommand('formatBlock', false, '<'+recupOptionDuSelect+'>');
-}); 
-
-//ON EXECUTE UNE METHODE POUR MODIFIER LE TEXTE SELON LE BOUTON OU ON CLIQUE
+//ON EXECUTE UNE FONCTION POUR MODIFIER LE TEXTE SELON LE BOUTON OU ON CLIQUE
 //ON CHANGE LES BALISE B EN STRONG ET I EN ITALIC
 $('button').on('click',function(){
     var check = $(this).data('command');
@@ -142,31 +214,39 @@ function toArrayItalic( arrayLike ){
     }
 })
 
+
+
+//RÉCUPÉRATION DE L'OPTION CONTENANT LE HEADING
+$('#visuel').one('click',function() {
+    recupOptionDuSelect = ($('#selection').val());
+    console.log(recupOptionDuSelect);
+    document.execCommand('formatBlock', false, '<'+recupOptionDuSelect+'>');
+    // if($('#visuel').has('br')){
+    //     $("br").remove();
+    // }
+}); 
+
 //CHANGEMENT DU HEADING D'UNE SELECTION
+$('#selection').on('click',function(){
+
 test = {
-            tmpEl: document.createElement('div'),
+            tmpEl: document.createElement('p'),
             
 			htmlToDom: function(htmlEl){
-                //JE RÉCUPÈRE MON HEADING ( H1 H2 ETC )
                 test.tmpEl.innerHTML = htmlEl;
                 return test.tmpEl.children[0]
 			},
 			wrapSelection: function(htmlEl){
-                //JE RÉPUÈRE LA SELECTION DU TEXTE ET JE STOCK DANS UNE VARIABLE AVEC GETSELECTION
                 var selection = window.getSelection();
-
-                //JE CRÉE UN FOR AVEC LA METHODE RANGE  ET UNE INCREMENTATION NEGATIVE
+//rangeCount - Renvoie le nombre de « plages » dans la sélection.
 				for(var i = selection.rangeCount;i--;){
-                    //J'INJECTE DANS UNE VARIABLE LE CONTENU 
                     var global = test.htmlToDom(htmlEl)
-                    //J'INJECTE DANS UNE VARIABLE RANGE L'OBJET
-                    //The Selection.getRangeAt() method returns a range object representing one of the ranges currently selected.
                     var range = selection.getRangeAt(i);
 					global.appendChild(range.extractContents());
 					range.insertNode(global);
 				}
 			},
-			command: (name,argument)=>{ //HEADING,THIS.VALUE
+			command: (name,argument)=>{
 				switch(name){
 	                    case 'heading' :
 						test.wrapSelection('<'+argument+'/>')	
@@ -178,9 +258,8 @@ test = {
 				document.execCommand(name, false, argument);
 			}
         }
+});
         
-
-
 //CETTE FONCTION PERMET D'ENVOYER LE CLEAN A LA VERSION HTML
 $('#ongletCode').on('click',function(){  
     //JE RÉCUPÈRE LE CONTENU HTML DANS CODE ET JE LE STOCK DANS UNE VARIABLE
@@ -190,6 +269,31 @@ $('#ongletCode').on('click',function(){
     //J'INJECTE LE TEXTE DE CODE DANS MES BALISES RECUP DU SELECT
     codeContent.textContent=visuelContent;
     // codeContent.textContent="<"+recupOptionDuSelect+">"+visuelContent+"</"+recupOptionDuSelect+">";
-
 });
 
+$('#ongletVisuel').on('click',function(){ 
+   var x=$('#code').text();
+   $('#visuel').html(x);
+});
+
+
+//colorpicker
+$('#colorSelector').ColorPicker({
+	color: '#0000ff',
+	onShow: function (colpkr) {
+		$(colpkr).fadeIn(500);
+		return false;
+	},
+	onHide: function (colpkr) {
+		$(colpkr).fadeOut(500);
+		return false;
+	},
+	onChange: function (hsb, hex, rgb) {
+        $('#colorSelector div').css('backgroundColor', '#' + hex);
+        
+	}
+});
+$('.colorpicker_submit').on('click',function(){
+    var check = $(this).data('command');
+    document.execCommand( check, false, color='#'+ hex );
+});
