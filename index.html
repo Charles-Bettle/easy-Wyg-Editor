@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css" >
-
+		<link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body>
@@ -82,8 +82,8 @@
 				<div class="block">
 					<ul>
 						<li>
-							<select id="selection" onchange="test.command('heading', this.value); this.selectedIndex = 0;">
-								<option selected="selected" value="p">Paragraphe</option>
+							<select id="selection" onchange="test.command('heading', this.value);">
+								<option id="selectedPara" selected="selected" value="p">Paragraphe</option>
 								<option value="h1">H1</option>
 								<option value="h2">H2</option>
 								<option value="h3">H3</option>
@@ -141,33 +141,33 @@
 								<i class="fa fa-chain-broken" aria-hidden="true"></i>
 							</button>
 						</li>
-						 <li>
-							<button class='colorPicker' type="button" data-command= 'foreColor' name="" value="">
-								<i class="fa fa-font" aria-hidden="true"></i>
-							</button>
-						</li>
-						</li>
 						<li>
 							<button class='addImg' type="button" data-command= 'insertImage' name="" value="">
 								<i class="fa fa-picture-o" aria-hidden="true"></i>
 							</button>
 						</li>
 						<li>
-							<button class='eraseBtn' type="button" data-command= 'delete' name="" value="">
+							<button class='eraseBtn' type="button" name="" value="">
 								<i class="fa fa-eraser" aria-hidden="true"></i>
 							</button>
 						</li> 
+						<li>
+							<div id="colorSelector">
+								<div data-command= 'forecolor' style="background-color: #0000ff"></div>
+							</div>
+						</li>
 						<li class="trait">
 						</li>
 					</ul>
 					<div id="code"  class="hidden" contenteditable="true" ></div>
-					<div id="visuel"  contenteditable="true" ></div>
+					<div id="visuel"  contenteditable="true"></div>
 				</div>
 			</div>
 	
 		<!-- DÉBUT HTML-->
 		
 		<script src="js/jquery-3.2.1.min.js"></script> 
+		<script type="text/javascript" src="js/colorpicker.js"></script>
 		<script src="js/main.js"></script>
 
 	</body>
