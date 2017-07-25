@@ -19,3 +19,7 @@ Ce wysiwyg est à intégrer dans un back-office client et permet de rédiger du 
  *Stéphane LE MAOUT
  
  *Marthe MBARA
+ 
+ ----
+ 
+ ![scan_easy-Wyg-Editor](https://github.com/Charles-Bettle/easy-Wyg-Editor/blob/master/images/easyWyg-v1.png)
