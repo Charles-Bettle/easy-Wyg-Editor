@@ -278,10 +278,20 @@ $('#ongletVisuel').on('click',function(){
 
 
 //colorpicker
+function getSelectedText() {
+  t = (document.all) ? document.selection.createRange().text : document.getSelection();
+
+  return t;
+}
+//a verif ou integrer
+var selection, selection_text;
+
 $('#colorSelector').ColorPicker({
 	color: '#0000ff',
 	onShow: function (colpkr) {
-		$(colpkr).fadeIn(500);
+        $(colpkr).fadeIn(500);
+            selection = getSelectedText();
+            selection_text = selection.toString();
 		return false;
 	},
 	onHide: function (colpkr) {
@@ -289,14 +299,127 @@ $('#colorSelector').ColorPicker({
 		return false;
 	},
 	onChange: function (hsb, hex, rgb) {
-        $('#colorSelector div').css('backgroundColor', '#' + hex);
         
+        $('#colorSelector div').css('backgroundColor', '#' + hex);
+        $('#visuel').mouseup(function(){
+
+
+            // How do I add a span around the selected text?
+
+            var span = document.createElement('SPAN');
+            span.setAttribute('style', 'color:#'+hex);
+            span.textContent = selection_text;
+
+            var range = selection.getRangeAt(0);
+            range.deleteContents();
+            range.insertNode(span);
+        }); 
 	}
 });
-
-// recuperer les infos du picker et l'envoyer sur la selection
-
-// $('.colorpicker_submit').on('click',function(){
-//     var check = $(this).data('command');
-//     document.execCommand( check, false, color='#'+ hex );
+//http://jsfiddle.net/Alfie/6V7hL/146/
+// var colorpickerOptions = {
+//     select: function (event, color) {
+//         var color_in_hex_format = color.formatted;
+//         $('[contenteditable]').html(function(){
+//             return this.textContent.replace(selection,'<span style="color:#'+color_in_hex_format+'">'+selection+'</span>');
+//         });
+//         $('.colorpicker').css('background-color', '#' + color_in_hex_format);
+//     } ,
+//     inline: false
+// };
+// var selection = "";
+// $('[contenteditable]').on('mouseup',function(){
+// selection = getSelectionHtml();
 // });
+// $('.colorpicker').colorpicker(colorpickerOptions);
+// function getSelectionHtml() {
+//     var html = "";
+//     if (typeof window.getSelection != "undefined") {
+//         var sel = window.getSelection();
+//         if (sel.rangeCount) {
+//             var container = document.createElement("div");
+//             for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+//                 container.appendChild(sel.getRangeAt(i).cloneContents());
+//             }
+//             html = container.innerHTML;
+//         }
+//     } else if (typeof document.selection != "undefined") {
+//         if (document.selection.type == "Text") {
+//             html = document.selection.createRange().htmlText;
+//         }
+//     }
+//     return html;
+// }
+
+
+
+
+
+
+
+
+// var range=null;
+
+// $(function(){
+
+// $('#picker').colorPicker({
+//     defaultColor: 0,
+//     // index of the default color
+//     columns: 13,
+//     // number of columns 
+//     click: function(c) {
+//         //alert(this);
+//         restoreSelection(range);
+//         document.execCommand('ForeColor',false, c);
+//     }
+// });
+
+// $('#output').mouseup(function(){
+//     range = saveSelection();
+// });
+
+//     $('#output').keyup(function(){
+//     range = saveSelection();
+// });
+    
+// function saveSelection() {
+//     if (window.getSelection) {
+//         sel = window.getSelection();
+//         if (sel.getRangeAt && sel.rangeCount) {
+//             return sel.getRangeAt(0);
+//         }
+//     } else if (document.selection && document.selection.createRange) {
+//         return document.selection.createRange();
+//     }
+//     return null;
+// }
+
+// function restoreSelection(range) {
+//     if (range) {
+//         if (window.getSelection) {
+//             sel = window.getSelection();
+//             sel.removeAllRanges();
+//             sel.addRange(range);
+//         } else if (document.selection && range.select) {
+//             range.select();
+//         }
+//     }
+// }
+
+
+//});
+// function getSelected(){
+//     if (window.getSelection) {
+//         return window.getSelection();
+//     }
+//     else if (document.getSelection) {
+//         return document.getSelection();
+//     }
+//     else {
+//         var selec = document.selection && document.selection.createRange();
+//             if (selec.text) { return select.text;}
+//             return false
+//     }
+//     return false
+// }
+
