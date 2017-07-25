@@ -11,6 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body>
+			<div id="mask" class="hidden"></div>
 
 		<!-- CRÉATION DE LA POP UP LINK -->
 
@@ -75,14 +76,16 @@
 		</div>
 
 		<!-- DÉBUT HTML-->
-		
+	
 			<div class="container">
 				<a href="#" id="ongletCode" class="ongletCode">Code</a>
 				<a href="#" id="ongletVisuel" class="ongletVisuel">Visual</a>
 				<div class="block">
 					<ul>
 						<li>
-							<select id="selection" onchange="test.command('heading', this.value);">
+
+							<select id="selection" onchange="test.command('heading', this.value);">    
+
 								<option id="selectedPara" selected="selected" value="p">Paragraphe</option>
 								<option value="h1">H1</option>
 								<option value="h2">H2</option>
@@ -164,7 +167,7 @@
 				</div>
 			</div>
 	
-		<!-- DÉBUT HTML-->
+		<!-- FIN HTML-->
 		
 		<script src="js/jquery-3.2.1.min.js"></script> 
 		<script type="text/javascript" src="js/colorpicker.js"></script>
