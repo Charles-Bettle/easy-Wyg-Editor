@@ -447,7 +447,7 @@ $('#selection').change(function() {
 //AU CHANGEMENT DE L'OPTION LE VISUEL GARDE EN MÉMOIRE L'OPTION 
 $('#selection').on('change',function(){
     $('#visuel').on('click',function(){
-        var selectionVisuel = window.getSelection().getRangeAt(0);
+        window.getSelection().getRangeAt(0);
     });
 
 
