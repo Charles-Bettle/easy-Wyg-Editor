@@ -1,4 +1,4 @@
-# easy-Wyg-Editor
+# Projet: easy-Wyg-Editor
 __Création d'un wysiwyg editor.__
 
 
